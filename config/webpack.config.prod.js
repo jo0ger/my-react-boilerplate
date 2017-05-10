@@ -114,6 +114,14 @@ module.exports = merge(baseWebpackConfig, {
           extractTextPluginOptions
         )
         // Note: this won't work without `new ExtractTextPlugin()` in `plugins`.
+      },
+      {
+        test: /\.styl$/,
+        loader: ExtractTextPlugin.extract(
+          'style',
+          'css?importLoaders=1!postcss!stylus',
+          extractTextPluginOptions
+        )
       }
       // ** STOP ** Are you adding a new loader?
       // Remember to add the new extension(s) to the "url" loader exclusion list.

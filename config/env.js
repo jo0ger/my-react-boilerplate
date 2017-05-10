@@ -32,7 +32,13 @@ function getClientEnvironment(publicUrl) {
       }, {})
   };
 
-  return { raw, stringified };
+  return {
+    raw,
+    stringified,
+    __DEV__: raw.NODE_ENV === 'development',
+    __PROD__: raw.NODE_ENV === 'production',
+    __TEST__: raw.NODE_ENV === 'test'
+  };
 }
 
 module.exports = getClientEnvironment;

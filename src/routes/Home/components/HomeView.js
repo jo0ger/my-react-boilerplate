@@ -6,7 +6,7 @@ const HomeView = () => {
   return (
     <div>
       <h4>This is a duck, because Redux!</h4>
-      <img className='duck' src={DuckImage} />
+      <img className='duck' src={DuckImage} alt="duckImg"/>
     </div>
   )
 }

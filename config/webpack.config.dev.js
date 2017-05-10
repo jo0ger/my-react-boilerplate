@@ -105,6 +105,11 @@ module.exports = merge(baseWebpackConfig, {
       {
         test: /\.css$/,
         loader: 'style!css?importLoaders=1!postcss'
+      },
+      {
+        test: /\.styl$/i,
+        exclude: /node_modules/,
+        loader: 'style!css?importLoaders=1!postcss!stylus?sourceMap'
       }
       // ** STOP ** Are you adding a new loader?
       // Remember to add the new extension(s) to the "url" loader exclusion list.

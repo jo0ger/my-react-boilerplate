@@ -1,5 +1,6 @@
-'use strict';
+'use strict'
 
+var webpack = require('webpack')
 var autoprefixer = require('autoprefixer')
 var paths = require('./paths')
 
@@ -23,7 +24,7 @@ module.exports = {
     // We also include JSX as a common component filename extension to support
     // some tools, although we do not recommend using it, see:
     // https://github.com/facebookincubator/create-react-app/issues/290
-    extensions: ['.js', '.json', '.jsx', 'styl', ''],
+    extensions: ['.js', '.json', '.jsx', '.styl', ''],
     alias: {
       // Support React Native Web
       // https://www.smashingmagazine.com/2016/08/a-glimpse-into-the-future-with-react-native-for-web/
@@ -48,16 +49,6 @@ module.exports = {
       }
     ],
     loaders: [
-      {
-        test: /\.styl$/,
-        exclude: /node_modules/,
-        loaders: [
-          'style',
-          'css?sourceMap&-minimize',
-          'postcss',
-          'stylus?sourceMap'
-        ]
-      },
       // JSON is not enabled by default in Webpack but both Node and Browserify
       // allow it implicitly so we also enable it.
       {
@@ -100,6 +91,13 @@ module.exports = {
       }),
     ]
   },
+  plugins: [
+    new webpack.DefinePlugin({
+      __DEV__: process.env.NODE_ENV === 'development',
+      __PROD__: process.env.NODE_ENV === 'production',
+      __TEST__: process.env.NODE_ENV === 'test'
+    })
+  ],
   // Some libraries import Node modules but don't use them in the browser.
   // Tell Webpack to provide empty mocks for them so importing them works.
   node: {

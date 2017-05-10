@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { BrowserRouter as Router } from 'react-router-dom'
+import { BrowserRouter as Router, Route, Switch, Redirect } from 'react-router-dom'
 import { Provider } from 'react-redux'
 import PropTypes from 'prop-types'
 
@@ -7,7 +7,8 @@ class AppContainer extends Component {
 
   static propTypes = {
     store: PropTypes.object.isRequired,
-    routes: PropTypes.element.isRequired
+    routes: PropTypes.object.isRequired,
+    children: PropTypes.element // Just React DevTools
   }
 
   shouldComponentUpdate(nextProps, nextState) {
@@ -16,9 +17,29 @@ class AppContainer extends Component {
   
   render () {
     const { store, routes } = this.props
+    const Layout = routes.component
+    const childRoutes = routes.childRoutes
+
     return (
       <Provider store={store}>
-        <Router children={routes} />
+        <div>
+          <Router basename={routes.basename || '/'}>
+            <Layout>
+              <Switch>
+                {
+                  childRoutes.map((route, index) => (
+                    route.redirect ? (
+                      <Redirect {...route.redirect} key={index} /> 
+                    ) : (
+                      <Route {...route} key={index} />
+                    )
+                  ))
+                }
+              </Switch>
+            </Layout>
+          </Router>
+          { this.props.children }
+        </div>
       </Provider>
     )
   }
