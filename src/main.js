@@ -3,7 +3,7 @@ import { render } from 'react-dom'
 import AppContainer from '~containers/AppContainer'
 import createRoutes from '~routes'
 import createStore from '~store/createStore'
-import '~styles/index'
+import '~styles/index' 
 
 const MOUNT_NODE = document.getElementById('root')
 console.log(module.hot)
