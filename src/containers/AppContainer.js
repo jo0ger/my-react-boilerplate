@@ -22,18 +22,24 @@ class AppContainer extends Component {
 
     return (
       <Provider store={store}>
-        <div>
+        <div className="app">
           <Router basename={routes.basename || '/'}>
             <Layout>
               <Switch>
                 {
-                  childRoutes.map((route, index) => (
-                    route.redirect ? (
-                      <Redirect {...route.redirect} key={index} /> 
-                    ) : (
-                      <Route {...route} key={index} />
+                  childRoutes.map((route, index) => {
+                    return (
+                      route.redirect ? (
+                        <Redirect {...route.redirect} key={index} exact />
+                      ) : (
+                        <Route path={route.path} exact={route.exact} key={index}
+                          render={() => {
+                            console.log(route.component)
+                            return <route.component />
+                          }}/>
+                      )
                     )
-                  ))
+                  })
                 }
               </Switch>
             </Layout>

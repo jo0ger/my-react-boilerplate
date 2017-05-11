@@ -1,5 +1,6 @@
 import { createStore, applyMiddleware, compose } from 'redux'
 import thunk from 'redux-thunk'
+import { createLogger } from 'redux-logger'
 import makeRootReducer from './reducers'
 
 export const createStoreWithMiddleware = (initialState = {}) => {
@@ -14,6 +15,7 @@ export const createStoreWithMiddleware = (initialState = {}) => {
       enhanders.push(devToolsExtension)
     }
     enhanders.push(DevTools.instrument())
+    middleWare.push(createLogger())
   }
 
   const store = createStore(
@@ -24,6 +26,8 @@ export const createStoreWithMiddleware = (initialState = {}) => {
       ...enhanders
     )
   )
+
+  store.asyncReducers = {}
 
   return store
 }

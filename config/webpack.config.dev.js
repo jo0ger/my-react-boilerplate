@@ -75,8 +75,10 @@ module.exports = merge(baseWebpackConfig, {
           // https://github.com/facebookincubator/create-react-app/issues/1713
           /\.(js|jsx)(\?.*)?$/,
           /\.css$/,
+          /\.styl$/,
           /\.json$/,
-          /\.svg$/
+          /\.svg$/,
+          /\.(png|jpg|gif)$/
         ],
         loader: 'url',
         query: {
@@ -107,9 +109,9 @@ module.exports = merge(baseWebpackConfig, {
         loader: 'style!css?importLoaders=1!postcss'
       },
       {
-        test: /\.styl$/i,
+        test: /\.styl$/,
         exclude: /node_modules/,
-        loader: 'style!css?importLoaders=1!postcss!stylus?sourceMap'
+        loader: 'style!css!postcss!stylus?sourceMap'
       }
       // ** STOP ** Are you adding a new loader?
       // Remember to add the new extension(s) to the "url" loader exclusion list.

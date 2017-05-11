@@ -5,7 +5,7 @@ import PropTypes from 'prop-types'
 export class Bundle extends Component {
 
   static propTyps = {
-    load: PropTypes.func.isRequired
+    load: PropTypes.node.isRequired
   }
 
   state = {
@@ -24,16 +24,18 @@ export class Bundle extends Component {
   }
   
   load (props) {
-    this.setState({ mode: null })
+    this.setState({ mod: null })
     props.load(mod => {
+      console.log(mod)
       this.setState({
-        mode: mod.default ? mod.default : mod
+        // handle both es imports and commonjs
+        mod: mod.default ? mod.default : mod
       })
     })
   }
 
   render () {
-    return this.props.children(this.state.mode)
+    return this.state.mod ? this.props.children(this.state.mod) : null
   }
 
 }

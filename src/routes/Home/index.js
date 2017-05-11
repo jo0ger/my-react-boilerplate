@@ -1,3 +1,3 @@
-import HomeView from './Components/HomeView'
+import HomeView from './components/HomeView'
 
 export default HomeView

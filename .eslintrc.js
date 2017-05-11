@@ -18,7 +18,8 @@ module.exports = {
   'globals': {
     '__DEV__': false,
     '__TEST__': false,
-    '__PROD__': false
+    '__PROD__': false,
+    'Axios': false
   },
   'rules': {
 		// allow paren-less arrow functions
@@ -29,6 +30,7 @@ module.exports = {
 		'no-debugger': process.env.NODE_ENV === 'production' ? 2 : 0,
 		'quotes': [2, 'single', { 'avoidEscape': true, 'allowTemplateLiterals': true }],
 		'camelcase': 0,
-		'no-regex-spaces': 0
+		'no-regex-spaces': 0,
+    'import/no-webpack-loader-syntax': 0
 	}
 }

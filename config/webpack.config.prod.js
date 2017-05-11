@@ -78,8 +78,10 @@ module.exports = merge(baseWebpackConfig, {
           /\.html$/,
           /\.(js|jsx)$/,
           /\.css$/,
+          /\.styl$/,
           /\.json$/,
-          /\.svg$/
+          /\.svg$/,
+          /\.(png|jpg|gif)$/
         ],
         loader: 'url',
         query: {

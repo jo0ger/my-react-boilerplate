@@ -1,12 +1,12 @@
 import React from 'react'
-import './HomeView'
-import DuckImage from '../assets/Duck.jpg'
+import '../assets/HomeView'
+import logo from '~static/logo.svg'
 
 const HomeView = () => {
   return (
     <div>
-      <h4>This is a duck, because Redux!</h4>
-      <img className='duck' src={DuckImage} alt="duckImg"/>
+      <h4>This is My React Boilerplate, because Redux!</h4>
+      <img className='logo' src={logo} alt="LOGO"/>
     </div>
   )
 }
