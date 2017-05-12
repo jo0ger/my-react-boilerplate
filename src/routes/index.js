@@ -3,6 +3,8 @@ import Bundle from '~components/Bundle'
 import AppLayout from '~layouts/AppLayout'
 import Home from './Home'
 import CounterRoute from './Counter'
+import ZenRoute from './Zen'
+import PageNotFound from './PageNotFound'
 
 const bundleAsyncRoute = (load, Loading = null) => {
   return (props) => (
@@ -35,6 +37,16 @@ export const createRoutes = store => {
         name: 'counter',
         component: bundleAsyncRoute(CounterRoute(store)),
         exact: true
+      },
+      {
+        path: '/zen',
+        name: 'zen',
+        component: bundleAsyncRoute(ZenRoute(store)),
+        exact: true
+      },
+      {
+        name: 'pageNotFound',
+        component: PageNotFound
       }
     ]
   }

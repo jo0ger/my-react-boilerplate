@@ -35,7 +35,8 @@ module.exports = {
       '~layouts': paths.srcLayouts,
       '~routes': paths.srcRoutes,
       '~store': paths.srcStore,
-      '~styles': paths.srcStyles
+      '~styles': paths.srcStyles,
+      '~service': paths.srcService
     }
   },
   module: {
@@ -91,14 +92,6 @@ module.exports = {
       }),
     ]
   },
-  plugins: [
-    new webpack.DefinePlugin({
-      __DEV__: process.env.NODE_ENV === 'development',
-      __PROD__: process.env.NODE_ENV === 'production',
-      __TEST__: process.env.NODE_ENV === 'test',
-      'Axios': require('axios')
-    })
-  ],
   // Some libraries import Node modules but don't use them in the browser.
   // Tell Webpack to provide empty mocks for them so importing them works.
   node: {

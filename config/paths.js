@@ -83,5 +83,6 @@ module.exports = {
   srcRoutes: resolveApp('src/routes'),
   srcStatic: resolveApp('src/static'),
   srcStore: resolveApp('src/store'),
-  srcStyles: resolveApp('src/styles')
+  srcStyles: resolveApp('src/styles'),
+  srcService: resolveApp('src/service')
 };

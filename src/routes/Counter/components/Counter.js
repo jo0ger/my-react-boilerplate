@@ -6,11 +6,11 @@ export const Counter = (props) => {
   return (
     <div className="counter">
       <h2>Counter: {props.counter}</h2>
-      <button className='btn btn-default' onClick={props.increment}>
+      <button className="btn btn-default" onClick={props.increment}>
         Increment
       </button>
       {' '}
-      <button className='btn btn-default' onClick={props.doubleAsync}>
+      <button className="btn btn-default" onClick={props.doubleAsync}>
         Double (Async)
       </button>
     </div>

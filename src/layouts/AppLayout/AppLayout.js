@@ -1,13 +1,13 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import Header from '~layouts/Header'
-import './AppLayout'
+import './AppLayout.styl'
 
 export const AppLayout = ({ children }) => {
   return (
-    <div className='container text-center'>
+    <div className="container text-center">
       <Header />
-      <div className='core-layout__viewport'>
+      <div className="core-layout__viewport">
         {children}
       </div>
     </div>

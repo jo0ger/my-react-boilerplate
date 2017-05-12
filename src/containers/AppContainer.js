@@ -32,11 +32,7 @@ class AppContainer extends Component {
                       route.redirect ? (
                         <Redirect {...route.redirect} key={index} exact />
                       ) : (
-                        <Route path={route.path} exact={route.exact} key={index}
-                          render={() => {
-                            console.log(route.component)
-                            return <route.component />
-                          }}/>
+                        <Route {...route} key={index} />
                       )
                     )
                   })

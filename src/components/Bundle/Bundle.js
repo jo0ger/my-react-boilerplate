@@ -26,7 +26,6 @@ export class Bundle extends Component {
   load (props) {
     this.setState({ mod: null })
     props.load(mod => {
-      console.log(mod)
       this.setState({
         // handle both es imports and commonjs
         mod: mod.default ? mod.default : mod
