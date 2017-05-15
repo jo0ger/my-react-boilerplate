@@ -121,7 +121,7 @@ module.exports = merge(baseWebpackConfig, {
         test: /\.styl$/,
         loader: ExtractTextPlugin.extract(
           'style',
-          'css?importLoaders=1!postcss!stylus',
+          'css?modules&importLoaders=1&localIdentName=[path]___[name]__[local]___[hash:base64:5]!postcss!stylus',
           extractTextPluginOptions
         )
       }
