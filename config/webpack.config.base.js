@@ -36,7 +36,8 @@ module.exports = {
       '~routes': paths.srcRoutes,
       '~store': paths.srcStore,
       '~styles': paths.srcStyles,
-      '~service': paths.srcService
+      '~service': paths.srcService,
+      '~utils': paths.srcUtils
     }
   },
   module: {

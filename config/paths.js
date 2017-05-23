@@ -84,5 +84,6 @@ module.exports = {
   srcStatic: resolveApp('src/static'),
   srcStore: resolveApp('src/store'),
   srcStyles: resolveApp('src/styles'),
-  srcService: resolveApp('src/service')
+  srcService: resolveApp('src/service'),
+  srcUtils: resolveApp('src/utils')
 };
