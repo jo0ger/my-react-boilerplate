@@ -1,5 +1,5 @@
 import React from 'react'
-import '../assets/homeView'
+import '../assets/HomeView'
 import logo from '~static/logo.svg'
 
 const HomeView = () => {
